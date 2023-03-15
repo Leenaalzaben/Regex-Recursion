@@ -4,19 +4,25 @@
 
 /* Write a function that take a string and return true if the string only contain uppercase and lowercase
 characters (no numbers and symbols) and it should end with capital A else return false */
-
-function capitalA(s){
+//pass
+function capitalA(s) {
     // Add your logic.
-    return;
+    //^[a-zA-Z]*A$
+    let regex = /^[A-Za-z.\s_]+[A]$/;
+    return regex.test(s);
 }
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
 which end with io (example@example.io) */
 
-function ioEmail(email){
+function ioEmail(email) {
     // Add your logic.
-    return;
+
+    let regex1 =/example@example.io/;
+    // let result=;
+
+    return regex1.test(email) ;
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
@@ -26,14 +32,20 @@ required extention are jpg, jpeg and png.
 
 */
 
-function imagesSearcher(text){
-    let arr = [];
+function imagesSearcher(text) {
+    // let arr = [];
     // Add your logic.
-    return arr
+    const regex2 = /\b([a-zA-Z0-9_]+\.(jpg|jpeg|png))\b/g;
+    const matches = text.match(regex2);
+    // If no matches are found, return an empty array
+    if (!matches) {
+        return [];
+    }
+    return matches;
 }
 
 
-describe("Test capitalA", ()=>{
+describe("Test capitalA", () => {
     test("It should return true if the input has uppercase and lowercase characters (no numbers and symbols) and it should end with capital A else return false ", () => {
         expect(capitalA("Hello world A")).toStrictEqual(true);
 
