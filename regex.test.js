@@ -29,6 +29,7 @@ required extention are jpg, jpeg and png.
 function imagesSearcher(text){
     let arr = [];
     // Add your logic.
+    
     return arr
 }
 
